@@ -1,8 +1,12 @@
-function SearchBar() {
+function SearchBar({search,setSearch}) {
     return (
-        <div>
-
-        </div>
+        <input
+        type="text"
+        placeholder="Serch projects..."
+        value={search}
+        onChange= {(evt)=>{setSearch(evt.target.value);
+        }}
+        />
     );
 }
 

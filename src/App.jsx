@@ -24,6 +24,7 @@ function App() {
    }
 
   ]);
+  const [search, setSearch]= useState("")
 
   function addProject(newProject) {
     setProjects([
@@ -34,13 +35,14 @@ function App() {
       }
     ]);
   }
+  const filterProjects= projects.filter((project)=>project.title.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <>
     <Header/>
     <ProjectForm addProject={addProject}/>
-    <SearchBar/>
-    <ProjectList projects={projects}/>
+    <SearchBar search={search} setSearch={setSearch}/>
+    <ProjectList projects={filterProjects}/>
     </>
     
   );
