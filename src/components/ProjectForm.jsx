@@ -1,10 +1,22 @@
 import {useState} from 'react';
 
-function ProjectForm() {
+function ProjectForm({addProject}) {
     const [title, setTitle]=useState("")
     const [description,setDescription]= useState("")
+
+    function handleSubmit(evt) {
+        evt.preventDefault();
+
+        addProject({
+            title: title,
+            description: description,
+        });
+
+        setTitle("");
+        setDescription("");
+    }
     return (
-        <form>
+        <form onSubmit= {handleSubmit}>
             <input
             type= "text"
             placeholder="Project Title"

@@ -25,10 +25,20 @@ function App() {
 
   ]);
 
+  function addProject(newProject) {
+    setProjects([
+      ...projects,
+      {
+        id: projects.length +1,
+        ...newProject
+      }
+    ]);
+  }
+
   return (
     <>
     <Header/>
-    <ProjectForm/>
+    <ProjectForm addProject={addProject}/>
     <SearchBar/>
     <ProjectList projects={projects}/>
     </>
