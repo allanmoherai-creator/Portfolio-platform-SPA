@@ -38,12 +38,14 @@ function App() {
   const filterProjects= projects.filter((project)=>project.title.toLowerCase().includes(search.toLowerCase()));
 
   return (
-    <>
-    <Header/>
-    <ProjectForm addProject={addProject}/>
-    <SearchBar search={search} setSearch={setSearch}/>
-    <ProjectList projects={filterProjects}/>
-    </>
+    <div className="min-h-screen bg-[oklch(66.6%_0.179_58.318)]">
+      <div className="max-w-3xl mx-auto p-6">
+        <Header/>
+        <ProjectForm addProject={addProject}/>
+        <SearchBar search={search} setSearch={setSearch}/>
+        <ProjectList projects={filterProjects}/>
+      </div>
+    </div>
     
   );
 }
